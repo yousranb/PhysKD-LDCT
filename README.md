@@ -1,26 +1,4 @@
-# PhysKD-LDCT
-
-Code for the paper
-
-**Physics-Informed Degradation-aware Knowledge Distillation for Robust and Compact LDCT Enhancement**
-Yousra Taifour, Marouane Tliba, Azeddine Beghdadi, Habib Zaidi, Gorkem Durak, Zuheng Ming, Marie Luong,
-Faouzi Alaya Cheikh, Marek Penhaker, Ulas Bagci, Aladine Chetouani.
-IEEE Journal of Biomedical and Health Informatics (submitted).
-
-## Overview
-
-Low-dose CT (LDCT) images combine quantum noise, streak artifacts and loss of sharpness. PhysKD-LDCT builds one
-restoration task per degradation from full-dose scans, using projection-domain operators with controlled severity
-(Poisson noise, an angularly localized streak model, detector blur), and trains one teacher per task. The three
-frozen teachers are combined by a learned spatial fusion module and distilled into a compact student, on real
-LDCT/FDCT pairs and on additional synthetic degraded inputs. Three distillation targets are compared: the fused
-teacher output (V1), the fused teacher latent (V2), and both (V3).
-
-All networks share the same backbone: a residual VAE-UNet whose bottleneck contains two Mamba selective
-state-space blocks; the decoder predicts a residual added to the LDCT input. The teachers use width 32
-(7.89 M parameters) and the student width 16 (1.99 M parameters).
-
-![PhysKD-LDCT framework](docs/framework.png)
+# [PhysKD-LDCT framework](docs/framework.png)
 
 ## Installation
 
@@ -36,7 +14,7 @@ LPIPS and DISTS download their pretrained weights to `~/.cache/torch` on first u
 
 ## Data
 
-Mayo2016 (AAPM Low Dose CT Grand Challenge) must be requested from the organizers. Place the DICOM files as
+Mayo2016 (AAPM Low Dose CT Grand Challenge) must DOWNLOADED from " https://aapm.app.box.com/s/eaw4jddb53keg1bptavvvd1sf4x3pe9h/folder/144799205162 " . Place the DICOM files as
 
 ```
 data/Mayo2016/<patient>/quarter_3mm/*.IMA   full_3mm/*.IMA   quarter_1mm/*.IMA   full_1mm/*.IMA
