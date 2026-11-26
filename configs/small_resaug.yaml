@@ -1,0 +1,20 @@
+# ResAug control, compact student (1.99 M): same real and synthetic batches as PhysKD-LDCT, synthetic inputs supervised by their reference, no distillation (lambda_kd = 0)   python train_physkd.py --config ...
+npy_dir: data/npy_3mm
+teachers: [noise=runs/teacher_noise/model_best.pkl, streak=runs/teacher_streak/model_best.pkl, blur=runs/teacher_blur/model_best.pkl]
+width: 16
+kd_syn_dir: data/syn_3mm
+kd_syn_extra: true        # 8 real pairs + 8 synthetic degraded inputs per step
+kd_syn_rec: true
+lambda_rec: 1.0
+lambda_kd: 0.0
+lambda_pix: 0.5
+lambda_feat: 0.2
+fusion_target: gt         # fusion trained against the FDCT; the student distils the detached fused targets
+feat_mode: mse
+kd_balance: ema
+epochs: 100
+lr: 1.0e-4
+batch_size: 8
+crop: 256
+beta_max: 1.0e-6
+beta_warmup: 10

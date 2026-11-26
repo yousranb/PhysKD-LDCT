@@ -1,0 +1,10 @@
+# Compact VAE-Mamba (1.99 M), real 3 mm / 25 % pairs only, no distillation.   python train.py --config ...
+npy_dir: data/npy_3mm
+width: 16
+epochs: 100
+lr: 1.0e-4
+batch_size: 8
+crop: 256
+lambda_rec: 1.0
+beta_max: 1.0e-6
+beta_warmup: 10

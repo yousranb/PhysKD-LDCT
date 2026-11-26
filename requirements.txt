@@ -1,0 +1,12 @@
+# tested with: torch 2.15, numpy 2.5, scipy 1.18, scikit-image 0.26, pydicom 3.0, lpips 0.1.4, piq 0.8,
+# opencv-python-headless 5.0, pyyaml 6.0, pytest 9.1 (Python 3.13). Original experiments: PyTorch on NVIDIA A100.
+torch>=2.0
+numpy
+scipy          # physkd/nqm.py imports scipy.ndimage.filters; if a future SciPy removes it, pin scipy<2
+scikit-image
+pydicom>=2.3
+pyyaml
+lpips
+piq
+opencv-python-headless
+pytest

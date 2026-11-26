@@ -1,0 +1,17 @@
+# Degradation-specific teacher (noise), full VAE-Mamba (7.89 M), trained only on synthetic noise pairs and
+# validated on synthetic noise pairs of the validation patient.   python train.py --config ...
+# NOTE: the epoch budget of the original teacher runs is not recorded; the selected checkpoints of the paper are
+# at epoch index 35. The value below is the script default.
+npy_dir: data/npy_3mm
+syn_dir: data/syn_3mm
+val_syn_dir: data/syn_3mm_val
+syn_ratio: 1.0
+syn_families: [noise]
+width: 32
+epochs: 100
+lr: 1.0e-4
+batch_size: 8
+crop: 256
+lambda_rec: 1.0
+beta_max: 1.0e-6
+beta_warmup: 10
